@@ -21,6 +21,7 @@ class TestBook:
         sys.stdout = captured_out
         book.page_count = "not an integer"
         sys.stdout = sys.__stdout__
+        captured_output = captured_out.getvalue().strip()
         assert captured_out.getvalue() == "page_count must be an integer\n"
 
     def test_can_turn_page(self):
